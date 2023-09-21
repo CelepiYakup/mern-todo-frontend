@@ -1,35 +1,48 @@
 import React from 'react'
-import axios from '../../../axios'
 import {ListContainer, Row, Text, DeleteIcon} from "./style"
+import {useAuthContext} from '../hooks/useAuthContext'
 
 function TodoList({todos, fetchData}) {
-    
+    const {user} = useAuthContext()
     const updateTodo = async (id) => {
-
-        try{
-            const response = await axios.patch(`/todos/${id}`, {
-                id
-            });
-            fetchData();
-
-        }catch(err){
-            console.log(err.message);
+        if (!user) {
+            return;
         }
-
+    
+        try {
+            const response = await fetch(`/api/todos/${id}`, {
+                method: 'PATCH', 
+                headers: {
+                    'Authorization': `Bearer ${user.token}`,
+                },
+            });
+    
+            fetchData();
+        } catch (err) {
+            console.error('Güncelleme hatası:', err);
+        }
     };
 
     const deleteTodo = async (id) => {
-
-        try{
-            const response = await axios.delete(`/todos/${id}`, {
-                id
-            });
-            fetchData();
-
-        }catch(err){
-            console.log(err.message);
+        if (!user) {
+            return;
         }
-
+        try {
+            const response = await fetch(`/api/todos/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${user.token}`,
+                },
+            });
+    
+            if (response.status === 200) {
+                fetchData();
+            } else {
+                console.error('Todo silme hata:', response.statusText);
+            }
+        } catch (err) {
+            console.error('Todo silme hata:', err.message);
+        }
     };
   return (
     <div>
