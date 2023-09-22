@@ -19,7 +19,7 @@ function TodoList({todos, fetchData}) {
     
             fetchData();
         } catch (err) {
-            console.error('Güncelleme hatası:', err);
+            console.error('Error to Update:', err);
         }
     };
 
@@ -38,10 +38,10 @@ function TodoList({todos, fetchData}) {
             if (response.status === 200) {
                 fetchData();
             } else {
-                console.error('Todo silme hata:', response.statusText);
+                console.error('Error to Update:', response.statusText);
             }
         } catch (err) {
-            console.error('Todo silme hata:', err.message);
+            console.error('Todo deletion error:', err.message);
         }
     };
   return (

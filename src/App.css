@@ -1,8 +1,8 @@
 .App{
-  margin: 0;
+  margin: 0px;
   padding: 50px;
   box-sizing: border-box;
-  background-color: #212121;
+  background: linear-gradient(30deg,#e76b05 50%,#000000 50%);
   font-weight: 500;
   font-size: 1.2rem;
   height: 100vh;
@@ -28,7 +28,7 @@ code {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #212121; 
+  background: linear-gradient(45deg,#000 50%,#e76b05 50%); 
   padding: 10px 20px;
   color: #fff; 
 }
@@ -49,25 +49,23 @@ nav{
   flex-direction: row-reverse;
   align-items: center;
   padding: 15px;
-
-  
 }
 
 nav a{
   margin-left: 10px;
-  border: 1px solid #e76b05;
+  border: 3px solid #212121;
   background-color: #212121;
   color: #fff;
   text-decoration: none;
   padding: 10px;
   text-size-adjust: 20px;
-  border-radius: 50%;
+  border-radius: 20%;
   transition: all 0.5s ease;
   
 }
 nav a:hover{
   background-color: #e76b05;
-  color: #000;
+  color: #fff;
   transform: scale(1.01) translateY(5px)
   
 }
@@ -77,20 +75,30 @@ nav button{
   background-color: #212121 ;
   color: #fff;
   border: 2px solid #e76b05;
-  padding: 6px 10px;
+  padding: 10px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1em;
   margin-left: 10px;
   transition: all 0.5s ease;
+  
 }
 nav button:hover{
   background-color: #e76b05;
-  color: #000;
+  border: 2.5px solid #212121;
+  color: #fff;
   transform: scale(1.01) translateY(5px)
   
 }
 
+.container1 div span{
+  border: 1px solid #000;
+  background-color: #212121;
+  margin-right: 10px;
+  display:inline;
+  padding: 7px;
+  
+}
 /* auth forms */
 form.signup, form.login{
   display: grid;
@@ -135,3 +143,12 @@ form button:hover{
   transform: scale(1.01) translateY(5px)
   
 }
+div.error{
+  padding: 10px;
+  background: #ffefef;
+  color: red;
+  border: 1px solid red;
+  margin: 20px 0;
+  
+}
+
