@@ -38,7 +38,7 @@ function TodoList({todos, fetchData}) {
             if (response.status === 200) {
                 fetchData();
             } else {
-                console.error('Error to Update:', response.statusText);
+                console.error('Error to update:', response.statusText);
             }
         } catch (err) {
             console.error('Todo deletion error:', err.message);
