@@ -38,6 +38,9 @@ code {
   font-size: 24px;
   color: #fff; 
 }
+.container1 h2:hover{
+  color:#e76b05
+}
 
 .App .container1 a {
   text-decoration:none;
@@ -53,8 +56,8 @@ nav{
 
 nav a{
   margin-left: 10px;
-  border: 3px solid #212121;
-  background-color: #212121;
+  border: 3px solid #000;
+  background-color: #000;
   color: #fff;
   text-decoration: none;
   padding: 10px;
@@ -72,7 +75,7 @@ nav a:hover{
 
 
 nav button{
-  background-color: #212121 ;
+  background-color: #000 ;
   color: #fff;
   border: 2px solid #e76b05;
   padding: 10px;
@@ -85,7 +88,7 @@ nav button{
 }
 nav button:hover{
   background-color: #e76b05;
-  border: 2.5px solid #212121;
+  border: 2.5px solid #000;
   color: #fff;
   transform: scale(1.01) translateY(5px)
   
@@ -93,10 +96,20 @@ nav button:hover{
 
 .container1 div span{
   border: 1px solid #000;
-  background-color: #212121;
+  background-color: #000;
   margin-right: 10px;
   display:inline;
   padding: 7px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  
+}
+
+.container1 div span:hover{
+  background-color: #e76b05;
+  border: 1.5px solid #000;
+  color: #fff;
+  transform: scale(1.01) translateY(5px)
   
 }
 /* auth forms */
