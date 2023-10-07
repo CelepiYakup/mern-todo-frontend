@@ -1,16 +1,19 @@
 import { useAuthContext } from "./useAuthContext";
 import { useState } from "react";
+const serverUrl = process.env.REACT_APP_DIFFERENT_URL;
 
 export const useSignup = () => {
     const { dispatch } = useAuthContext();
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    
 
     const signup = async (email, password) => {
         setIsLoading(true);
         setError(null);
+        
 
-        const response = await fetch('/api/user/signup', {
+        const response = await fetch(`${serverUrl}/api/user/signup`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })

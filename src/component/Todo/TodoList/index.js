@@ -2,15 +2,17 @@ import React from 'react'
 import {ListContainer, Row, Text, DeleteIcon} from "./style"
 import {useAuthContext} from '../hooks/useAuthContext'
 
+
 function TodoList({todos, fetchData}) {
+    const serverUrl = process.env.REACT_APP_DIFFERENT_URL
     const {user} = useAuthContext()
     const updateTodo = async (id) => {
         if (!user) {
             return;
         }
-    
+        
         try {
-            const response = await fetch(`/api/todos/${id}`, {
+            const response = await fetch(`${serverUrl}/api/todos/${id}`, {
                 method: 'PATCH', 
                 headers: {
                     'Authorization': `Bearer ${user.token}`,
@@ -28,7 +30,7 @@ function TodoList({todos, fetchData}) {
             return;
         }
         try {
-            const response = await fetch(`/api/todos/${id}`, {
+            const response = await fetch(`${serverUrl}/api/todos/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${user.token}`,

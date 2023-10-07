@@ -4,16 +4,18 @@ import { Container } from "./style";
 import TodoList from "./TodoList/index";
 import { useAuthContext } from './hooks/useAuthContext'
 
+
 function Todo() {
     const [input, setInput] = useState("");
     const [todos, setTodos] = useState([]);
     const [error, setError] = useState(null); 
+    const serverUrl = process.env.REACT_APP_DIFFERENT_URL
 
     const { user } = useAuthContext();
 
     const fetchData = async () => {
         try {
-            const response = await fetch("/api/todos", {
+            const response = await fetch(`${serverUrl}/api/todos`, {
                 headers: {
                     'Authorization': `Bearer ${user?.token}`,
                 },
@@ -38,7 +40,7 @@ function Todo() {
         if (input.length === 0) return null;
     
         try {
-            await fetch("/api/todos", {
+            await fetch(`${serverUrl}/api/todos`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
