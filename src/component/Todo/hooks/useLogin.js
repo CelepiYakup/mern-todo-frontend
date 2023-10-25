@@ -5,10 +5,6 @@ import { useAuthContext } from "./useAuthContext";
 const serverUrl = process.env.REACT_APP_DIFFERENT_URL;
 
 
-if (!serverUrl) {
-    throw new Error("REACT_APP_DIFFERENT_URL environment variable is not defined.");
-  }
-
 export const useLogin = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);

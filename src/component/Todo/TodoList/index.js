@@ -45,6 +45,7 @@ function TodoList({todos, fetchData}) {
         } catch (err) {
             console.error('Todo deletion error:', err.message);
         }
+        
     };
   return (
     <div>
