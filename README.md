@@ -41,30 +41,33 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+function calculateStandardDeviation(dataSet) {
+    const mean = calculateMean(dataSet);
+    const n = dataSet.length;
+    let sumOfSquaredDifferences = 0;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    for (let i = 0; i < n; i++) {
+        sumOfSquaredDifferences += Math.pow(dataSet[i] - mean, 2);
+    }
 
-### Code Splitting
+    const variance = sumOfSquaredDifferences / n;
+    const stdDeviation = Math.sqrt(variance);
+    return stdDeviation;
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+function calculateMean(dataSet) {
+    const n = dataSet.length;
+    let sum = 0;
 
-### Analyzing the Bundle Size
+    for (let i = 0; i < n; i++) {
+        sum += dataSet[i];
+    }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    return sum / n;
+}
 
-### Making a Progressive Web App
+// Example usage
+const dataSet = [2, 4, 4, 4, 5, 5, 7, 9];
+const result = calculateStandardDeviation(dataSet);
+console.log("Standard Deviation:", result);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
