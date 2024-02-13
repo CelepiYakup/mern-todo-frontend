@@ -41,33 +41,51 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ## Learn More
 
+// Function to calculate the standard deviation of a given dataSet array.
 function calculateStandardDeviation(dataSet) {
+    // Calculate the mean (average) value of the dataSet array using the calculateMean function.
     const mean = calculateMean(dataSet);
+    // Get the number of elements in the dataSet array.
     const n = dataSet.length;
+    // Initialize a variable to hold the sum of squared differences from the mean.
     let sumOfSquaredDifferences = 0;
 
+    // Iterate through each element in the dataSet array to calculate the sum of squared differences.
     for (let i = 0; i < n; i++) {
+        // Calculate the squared difference between the current element and the mean value.
+        // Add the squared difference to the sumOfSquaredDifferences variable.
         sumOfSquaredDifferences += Math.pow(dataSet[i] - mean, 2);
     }
 
+    // Calculate the variance by dividing the sum of squared differences by the number of elements.
     const variance = sumOfSquaredDifferences / n;
+    // Calculate the standard deviation by taking the square root of the variance.
     const stdDeviation = Math.sqrt(variance);
+    // Return the calculated standard deviation.
     return stdDeviation;
 }
 
+// Function to calculate the mean (average) value of a given dataSet array.
 function calculateMean(dataSet) {
+    // Get the number of elements in the dataSet array.
     const n = dataSet.length;
+    // Initialize a variable to hold the sum of all elements in the dataSet array.
     let sum = 0;
 
+    // Iterate through each element in the dataSet array to calculate the sum.
     for (let i = 0; i < n; i++) {
+        // Add the current element to the sum variable.
         sum += dataSet[i];
     }
 
-    return sum / n;
+    // Calculate the mean by dividing the sum by the number of elements.
+    const mean = sum / n;
+    // Return the calculated mean value.
+    return mean;
 }
 
-// Example usage
-const dataSet = [2, 4, 4, 4, 5, 5, 7, 9];
+// Given dataSet array.
+const dataSet = [4, 7, 11, 13, 16, 18, 20];
+// Calculate the standard deviation of the dataSet array using the calculateStandardDeviation function.
 const result = calculateStandardDeviation(dataSet);
-console.log("Standard Deviation:", result);
-
+// Output the calculate
